@@ -1,0 +1,37 @@
+
+
+GET DATA:
+
+
+https://data.cityofchicago.org/resource/sxs8-h27x.json
+
+
+GET DATA within Time Range:
+
+https://data.cityofchicago.org/resource/sxs8-h27x.json?$where=time%20between%20%272022-05-01T00:00:00%27%20and%20%272022-05-01T00:05:00%27%20AND%20speed%20%3E%20-1&$limit=10000
+
+
+GET Segments within a month:
+
+https://data.cityofchicago.org/resource/sxs8-h27x.json?$where=time%20between%20%272023-04-30T00:00:00%27%20and%20%272023-05-01T00:00:00%27%20AND%20speed%20%3E%20-1&$select=distinct(segment_id)
+
+GET Segments & Street Mapping
+
+https://data.cityofchicago.org/resource/sxs8-h27x.json?$select=distinct segment_id, street, from_street, to_street&$where=time between '2023-04-30T00:00:00' and '2023-05-01T00:00:00' AND speed > -1&$order=segment_id ASC
+
+
+GET Segments Per Streert:
+
+https://data.cityofchicago.org/resource/sxs8-h27x.json?$where=time%20between%20%272023-04-30T00:00:00%27%20and%20%272023-05-01T00:00:00%27%20AND%20speed%20%3E%20-1&$select=street, count(DISTINCT segment_id) AS count_distinct_segment_id&$group=street&$order=count_distinct_segment_id%20DESC
+
+
+
+GET Weather forecast data :
+
+https://api.weather.gov/gridpoints/LOT/73,69/forecast/hourly
+
+
+GET Weather historical data:
+
+https://data.cityofchicago.org/resource/k7hf-8y75.json?$select=distinct(station_name)&$where=measurement_timestamp between '2023-01-01T00:00:00.000' and '2023-02-01T00:00:00.000'
+
